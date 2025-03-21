@@ -3,7 +3,7 @@
 ## Install
 
 ```bash
-npm i aftermath-ts-sdk
+npm i client-aftermath-ts-sdk
 ```
 
 ## Usage
