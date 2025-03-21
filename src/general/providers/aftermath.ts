@@ -16,7 +16,7 @@ import { Casting } from "../utils/casting";
 import { Caller } from "../utils/caller";
 import { Prices } from "../prices/prices";
 import {
-	Auth,
+	// Auth,
 	LeveragedStaking,
 	NftAmm,
 	ReferralVault,
@@ -65,7 +65,7 @@ export class Aftermath extends Caller {
 	 */
 	constructor(
 		private readonly network?: SuiNetwork,
-		private Provider?: AftermathApi
+		private Provider?: AftermathApi,
 	) {
 		super({
 			network,
@@ -84,10 +84,10 @@ export class Aftermath extends Caller {
 			(this.network === "LOCAL"
 				? "http://127.0.0.1:9000"
 				: this.network === "DEVNET"
-				? "https://fullnode.devnet.sui.io:443"
-				: this.network === "TESTNET"
-				? "https://fullnode.testnet.sui.io:443"
-				: "https://fullnode.mainnet.sui.io:443");
+					? "https://fullnode.devnet.sui.io:443"
+					: this.network === "TESTNET"
+						? "https://fullnode.testnet.sui.io:443"
+						: "https://fullnode.mainnet.sui.io:443");
 
 		this.Provider = new AftermathApi(
 			new SuiClient({
@@ -95,7 +95,7 @@ export class Aftermath extends Caller {
 					url: fullnodeUrl,
 				}),
 			}),
-			addresses
+			addresses,
 		);
 	}
 
@@ -178,7 +178,7 @@ export class Aftermath extends Caller {
 	public HistoricalData = () => new HistoricalData(this.config);
 	// public PriceFeeds = () => new PriceFeeds(this.config, this.Provider);
 	public DynamicGas = () => new DynamicGas(this.config);
-	public Auth = () => new Auth(this.config);
+	// public Auth = () => new Auth(this.config);
 
 	// =========================================================================
 	//  Utils
